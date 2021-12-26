@@ -14,6 +14,12 @@ packer.startup({
     for _,repo in pairs(repos) do
       use(repo)
     end
-  end
+  end,
+  config = {
+  display = {
+    open_fn = nil,
+    title = "Packer"
+  }
+}
 })
 

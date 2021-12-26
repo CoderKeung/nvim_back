@@ -59,7 +59,7 @@ require("lualine").setup {
     theme = custom,
     component_separators = {left = "", right = ""},
     section_separators = {left = "", right = ""},
-    disabled_filetypes = {"NvimTree", "ToggleTerm"},
+    disabled_filetypes = {"NvimTree", "DiffviewFilePanel"},
     always_divide_middle = true
   },
   sections = {
