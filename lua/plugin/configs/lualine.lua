@@ -65,7 +65,7 @@ require("lualine").setup {
   sections = {
     lualine_a = {
       function()
-        return mode_icon[vim.fn.mode()]
+        return "C-K "..mode_icon[vim.fn.mode()]
       end
     },
     lualine_b = {

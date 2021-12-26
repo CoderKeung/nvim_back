@@ -1,3 +1,0 @@
-require("custom")
-
-require("plugin")

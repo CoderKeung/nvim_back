@@ -2,6 +2,7 @@ local tree_cb = require "nvim-tree.config".nvim_tree_callback
 vim.cmd[[
 hi NvimTreeNormal guibg=none
 hi NvimTreeFolderIcon guifg=#f6c177
+hi NvimTreeOpenedFolderName guifg=#e78a41
 ]]
 
 require "nvim-tree".setup {

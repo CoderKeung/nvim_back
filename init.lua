@@ -4,4 +4,4 @@
 -- Email: coderkeung@gmail.com
 
 -- Load Main Module
-require("main")
+require("core")
