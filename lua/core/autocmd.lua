@@ -1,6 +1,6 @@
 local autocmd = {}
--- local packer_config_dir = vim.fn.stdpath("config") .. "/lua/packerConfig"
-local packer_config_dir = os.getenv("HOME").."/.dotfile/config/nvim/lua/packerConfig"
+local packer_config_dir = vim.fn.stdpath("config") .. "/lua"
+-- local packer_config_dir = os.getenv("HOME").."/.dotfile/config/nvim/lua/packerConfig"
 
 function autocmd:run()
   vim.cmd [[:silent w!]]

@@ -6,4 +6,4 @@ function M.load_main()
   require("plugin")
 end
 
-M.load_main()
+return M.load_main()

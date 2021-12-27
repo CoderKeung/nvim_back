@@ -20,22 +20,25 @@ local custom = {
   normal = {
     a = {bg = colors.yellow, fg = colors.bg},
     b = {bg = colors.orange, fg = colors.black},
-    x = {bg = colors.bg, fg = colors.fg},
+    x = {bg = colors.green, fg = colors.black},
     z = {bg = colors.red, fg = colors.bg}
   },
   insert = {
     a = {bg = colors.red, fg = colors.black},
     b = {bg = colors.orange, fg = colors.black},
-    z = {bg = colors.red, fg = colors.bg},
+    x = {bg = colors.green, fg = colors.black},
+    z = {bg = colors.red, fg = colors.bg}
   },
   visual = {
     a = {bg = colors.green, fg = colors.black},
     b = {bg = colors.orange, fg = colors.black},
+    x = {bg = colors.green, fg = colors.black},
     z = {bg = colors.red, fg = colors.bg}
   },
   command = {
     a = {bg = colors.blue, fg = colors.black},
     b = {bg = colors.orange, fg = colors.black},
+    x = {bg = colors.green, fg = colors.black},
     z = {bg = colors.red, fg = colors.bg}
   },
   replace = {},
@@ -58,32 +61,51 @@ require("lualine").setup {
     icons_enabled = true,
     theme = custom,
     component_separators = {left = "", right = ""},
-    section_separators = {left = "", right = ""},
+    section_separators = {left = "", right = ""},
     disabled_filetypes = {"NvimTree", "DiffviewFilePanel"},
     always_divide_middle = true
   },
   sections = {
     lualine_a = {
       function()
-        return "C-K "..mode_icon[vim.fn.mode()]
+        return "C-K " .. mode_icon[vim.fn.mode()]
       end
     },
     lualine_b = {
-      "branch",
+      {
+        "branch",
+        padding = 2
+      }
+    },
+    lualine_c = {
       {
         "diff",
-        symbols = {added = "+", modified = "~", removed = "-"},
+        symbols = {added = " ", modified = "  ", removed = "  "},
         diff_color = {
           added = "DiffAdd", -- changes diff's added color
-          modified = "PmenuSel", -- changes diff's modified color
+          modified = "DiffChange", -- changes diff's modified color
           removed = "DiffDelete" -- changes diff's removed color you
         }
       }
     },
-    lualine_c = {"diagnostics"},
-    lualine_x = {{"filetype", padding = 0, icon_only = true}, "filename"},
-    lualine_y = {"progress"},
-    lualine_z = {"location"}
+    lualine_x = {
+      {
+        "diagnostics",
+        colored = true,
+        diagnostics_color = {
+          -- Same values like general color option can be used here.
+          error = "DiffDelete", -- changes diagnostic's error color
+          warn = "IncSearch", -- changes diagnostic's warn color
+          info = "DiffAdd", -- changes diagnostic's info color
+          hint = "Visual" -- changes diagnostic's hint color
+        },
+        symbols = {error = "  ", warn = "  ", info = "  ", hint = "  "}
+      },
+      {"filetype", padding = {left = 1}, icon_only = true, colored = false},
+      {"filename", symbols = {modified = "  ", readonly = "  ", unnamed = "  "}}
+    },
+    lualine_y = {},
+    lualine_z = {"progress"}
   },
   inactive_sections = {
     lualine_a = {},
@@ -94,12 +116,12 @@ require("lualine").setup {
     lualine_z = {}
   },
   tabline = {
-    lualine_a = {{"buffers",padding = 2}},
+    lualine_a = {{"buffers", padding = 2}},
     lualine_b = {""},
     lualine_c = {""},
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {"tabs"}
+    lualine_z = {{"tabs"}}
   },
   extensions = {}
 }

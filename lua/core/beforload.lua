@@ -2,6 +2,23 @@ local util = require("util")
 local global = require("util.global")
 local fn = vim.fn
 
+vim.api.nvim_command("augroup packer")
+vim.api.nvim_command("autocmd!")
+vim.api.nvim_command('autocmd BufWritePost *.lua lua require("core.autocmd").compile()')
+vim.api.nvim_command("augroup end")
+
+vim.g.vimwiki_list = {
+  {
+    path = os.getenv("HOME")..'/Documents/Vimwiki',
+    path_html = os.getenv("HOME")..'/Documents/Vimwiki_Html',
+  }
+}
+
+vim.cmd[[
+  hi TelescopePromptCounter guifg=#ebdbb2
+]]
+
+
 if util.packer_no_install() then
   fn.system({"git", "clone", "--depth", "1", global.packer_repo, global.packer_path})
 end
