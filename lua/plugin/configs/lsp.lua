@@ -1,13 +1,12 @@
 vim.diagnostic.config(
   {
     virtual_text = {
-      prefix = "●" -- Could be '●', '▎', 'x'
+      prefix = "" -- Could be '●', '▎', 'x'
     },
     signs = true,
-    virtual_text = true,
     underline = true,
-    update_in_insert = false,
-    severity_sort = false
+    update_in_insert = true,
+    severity_sort = true
   }
 )
 

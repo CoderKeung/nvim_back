@@ -26,7 +26,7 @@ keymap("n", "Fn", "<cmd>bnext<CR>", {noremap = true, silent = true})
 
 -- Running code Keymap
 keymap("n", "Fr", '<cmd>lua require "core.autocmd".run()<CR>', {noremap = true, silent = true})
-keymap("n", "Fs", "<cmd>!leetcode submit %<CR>", {noremap = true, silent = true})
+keymap("n", "Fs", "<cmd>lua require('core.autocmd').leetcodeSubmit()<CR>", {noremap = true, silent = true})
 
 -- Diffview Keymap
 keymap("n", "Fk", "<cmd>DiffviewOpen<CR>", {noremap = true, silent = true})

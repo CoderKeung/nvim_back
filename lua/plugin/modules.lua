@@ -90,13 +90,9 @@ modules["dstein64/vim-startuptime"] = {
   cmd = "StartupTime"
 }
 
-modules["yamatsum/nvim-cursorline"] = {
-  event = "InsertEnter"
-}
-
 modules["f-person/git-blame.nvim"] = {
   cmd = {"GitBlameToggle"},
-  config = function() vim.g.gitblame_message_template = "  -> <summary> • <date> • <author>" end
+  config = function() vim.g.gitblame_message_template = "   <summary> • <date> • <author>" end
 }
 
 modules["godlygeek/tabular"] = {

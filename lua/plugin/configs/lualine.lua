@@ -21,29 +21,54 @@ local custom = {
     a = {bg = colors.yellow, fg = colors.bg},
     b = {bg = colors.orange, fg = colors.black},
     x = {bg = colors.green, fg = colors.black},
-    z = {bg = colors.red, fg = colors.bg}
+    y = {bg = colors.pink, fg = colors.black},
+    z = {bg = colors.bg, fg = colors.yellow}
   },
   insert = {
     a = {bg = colors.red, fg = colors.black},
     b = {bg = colors.orange, fg = colors.black},
     x = {bg = colors.green, fg = colors.black},
-    z = {bg = colors.red, fg = colors.bg}
+    y = {bg = colors.pink, fg = colors.black},
+    z = {bg = colors.bg, fg = colors.red}
   },
   visual = {
     a = {bg = colors.green, fg = colors.black},
     b = {bg = colors.orange, fg = colors.black},
     x = {bg = colors.green, fg = colors.black},
-    z = {bg = colors.red, fg = colors.bg}
+    y = {bg = colors.pink, fg = colors.black},
+    z = {bg = colors.bg, fg = colors.green}
   },
   command = {
     a = {bg = colors.blue, fg = colors.black},
     b = {bg = colors.orange, fg = colors.black},
     x = {bg = colors.green, fg = colors.black},
-    z = {bg = colors.red, fg = colors.bg}
+    y = {bg = colors.pink, fg = colors.black},
+    z = {bg = colors.bg, fg = colors.blue}
   },
   replace = {},
   inavtive = {}
 }
+
+local function scrollbar_instance(scroll_bar_chars)
+  local current_line = vim.fn.line(".")
+  local total_lines = vim.fn.line("$")
+  local default_chars = {"▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██"}
+  local chars = scroll_bar_chars or default_chars
+  local index = 1
+
+  if current_line == 1 then
+    return " "
+  elseif current_line == total_lines then
+    index = #chars
+  else
+    local line_no_fraction = vim.fn.floor(current_line) / vim.fn.floor(total_lines)
+    index = vim.fn.float2nr(line_no_fraction * #chars)
+    if index == 0 then
+      index = 1
+    end
+  end
+  return chars[index]
+end
 
 local mode_icon = {
   c = "🅒 ",
@@ -61,7 +86,7 @@ require("lualine").setup {
     icons_enabled = true,
     theme = custom,
     component_separators = {left = "", right = ""},
-    section_separators = {left = "", right = ""},
+    section_separators = {left = "", right = ""},
     disabled_filetypes = {"NvimTree", "DiffviewFilePanel"},
     always_divide_middle = true
   },
@@ -100,12 +125,22 @@ require("lualine").setup {
           hint = "Visual" -- changes diagnostic's hint color
         },
         symbols = {error = "  ", warn = "  ", info = "  ", hint = "  "}
-      },
+      }
+    },
+    lualine_y = {
       {"filetype", padding = {left = 1}, icon_only = true, colored = false},
       {"filename", symbols = {modified = "  ", readonly = "  ", unnamed = "  "}}
     },
-    lualine_y = {},
-    lualine_z = {"progress"}
+    lualine_z = {
+      {
+        function()
+          local icon = scrollbar_instance()
+          local percent, _ = math.modf((vim.fn.line(".") / vim.fn.line("$")) * 100)
+          return percent .. "%% " .. icon
+        end,
+        padding = {right = 0, left = 1}
+      }
+    }
   },
   inactive_sections = {
     lualine_a = {},
@@ -120,8 +155,8 @@ require("lualine").setup {
     lualine_b = {""},
     lualine_c = {""},
     lualine_x = {},
-    lualine_y = {},
-    lualine_z = {{"tabs"}}
+    lualine_y = {{"tabs"}},
+    lualine_z = {}
   },
   extensions = {}
 }

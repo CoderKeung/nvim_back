@@ -14,8 +14,10 @@ function autocmd:run()
     vim.cmd[[luafile %]]
   elseif filetype == "cpp" then
     if dir:match(leetcode) then
-      local leetcodeMsg = vim.api.nvim_exec("!leetcode test %", {"non-shell"})
-      require "notify"(leetcodeMsg, "info", {timeout = 2000, title = "LeetCode", icon = ""})
+      --local leetcodeMsg = vim.api.nvim_exec("!leetcode test %", {"non-shell"})
+      --require "notify"(leetcodeMsg, "info", {timeout = 5000, title = "LeetCode", icon = ""})
+      local leetcodeCmd = "leetcode test " .. vim.fn.expand("%")
+      require("toggleterm").exec(leetcodeCmd)
     else
       local cmd = "g++ -std=c++11 " .. vim.fn.expand("%") .. " && time ./a.out && rm -rf a.out"
       require'toggleterm'.exec(cmd)
@@ -30,6 +32,11 @@ function autocmd:compile()
     vim.cmd [[ PackerCompile ]]
     require "notify"("PackerCompile Success!", "info", {timeout = 10, render = "minimal"})
   end
+end
+
+function autocmd:leetcodeSubmit()
+  local cmd = "leetcode submit " .. vim.fn.expand("%")
+  require("toggleterm").exec(cmd)
 end
 
 return autocmd
