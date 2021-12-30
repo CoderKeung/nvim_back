@@ -21,7 +21,7 @@ keymap("n", "z", "<cmd>ColorizerToggle<CR>", {noremap = true, silent = true})
 -- Telescope Keymap
 keymap("n", "Ff", "<cmd>Telescope find_files<CR>", {noremap = true, silent = true})
 keymap("n", "Fl", "<cmd>Telescope help_tags<CR>", {noremap = true, silent = true})
-keymap("n", "Fm", '<cmd>lua require"core.customfind".fd_nvim_dir()<CR>', {noremap = true, silent = true})
+keymap("n", "Fm", '<cmd>lua require"custom.find".fd_nvim_dir()<CR>', {noremap = true, silent = true})
 keymap("n", "Fn", "<cmd>bnext<CR>", {noremap = true, silent = true})
 
 -- Running code Keymap
@@ -38,7 +38,7 @@ keymap("n", "Fh", "<cmd>DiffviewFileHistory<CR>", {noremap = true, silent = true
 keymap("n", "Fi", "<cmd>FocusToggle<CR>", {noremap = true, silent = true})
 
 -- LazyGit Keymap
-keymap("n", "Fg", "<cmd>lua require 'core.lazygit'.LazygitToggle()<CR>", {noremap = true, silent = true})
+keymap("n", "Fg", "<cmd>lua require 'custom.lazygit'.LazygitToggle()<CR>", {noremap = true, silent = true})
 
 -- GitBlame Keymap
 keymap("n", "Fb", "<cmd>GitBlameToggle<CR>", {noremap = true, silent = true})
@@ -63,4 +63,8 @@ keymap("n", "Fa", "<cmd>FormatWrite<CR>", {noremap = true, silent = true})
 keymap("n", "Fv", "<cmd>TroubleToggle<CR>", {noremap = true, silent = true})
 
 -- Leetcode Keymap
-keymap("n", "Fc", "<cmd>lua require'core.leetcode'.leetcode_toggle(require'core.leetcode'.dropdown())<CR>", {noremap = true, silent = true})
+keymap("n", "Fc", "<cmd>lua require'custom.leetcode'.leetcode_toggle(require'custom.leetcode'.dropdown())<CR>", {noremap = true, silent = true})
+
+-- Cmd Keymap
+keymap('n', ':', '<cmd>:lua require("custom.cmd").cmdEnter()<CR>:', {noremap = true})
+keymap('n', '/', '<cmd>:lua require("custom.cmd").cmdEnter()<CR>/', {noremap = true})

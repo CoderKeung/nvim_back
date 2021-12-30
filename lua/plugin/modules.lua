@@ -60,6 +60,11 @@ modules["nvim-lualine/lualine.nvim"] = {
   config = function() require("plugin.configs.lualine") end
 }
 
+modules["akinsho/bufferline.nvim"] = {
+  requires = "kyazdani42/nvim-web-devicons",
+  config = function() require("plugin.configs.bufferline") end
+}
+
 modules["lewis6991/gitsigns.nvim"] = {
   event = {"BufRead", "BufNewFile"},
   config = function() require("gitsigns").setup() end

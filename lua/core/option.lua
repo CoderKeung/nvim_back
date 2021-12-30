@@ -5,14 +5,15 @@ local options = {
   sw = 2,
   expandtab = true,
   number = true,
-  t_Co = 256,
   relativenumber = true,
   termguicolors = true,
   clipboard = "unnamedplus",
---  cursorline = true,
   showmode = false,
   updatetime = 300,
-  undofile = true
+  undofile = true,
+  fillchars = "vert: ",
+  cmdheight=0,
+  laststatus=1,
 }
 
 util.set_option(options)

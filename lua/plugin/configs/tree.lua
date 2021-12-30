@@ -1,9 +1,42 @@
 local tree_cb = require "nvim-tree.config".nvim_tree_callback
 vim.cmd[[
-hi NvimTreeNormal guibg=none
+hi NvimTreeNormal guibg=#0A2B34
+hi NvimTreeNormalNC guibg=#0A2B34 
+hi NvimTreeStatusLine guibg=#0A2B34
+hi NvimTreeStatusLineNC guibg=#0A2B34 guifg=#0A2B34
+hi NvimTreeVertSplit guibg=#0A2B34
 hi NvimTreeFolderIcon guifg=#f6c177
 hi NvimTreeOpenedFolderName guifg=#e78a41
 ]]
+
+vim.g.nvim_tree_indent_markers = 1
+vim.g.nvim_tree_show_icons = {
+   folders = 1,
+   files = 1,
+   git = 1,
+}
+
+vim.g.nvim_tree_icons = {
+   default = "",
+   symlink = "",
+   git = {
+      deleted = "",
+      ignored = "◌",
+      renamed = "➜",
+      staged = "לּ",
+      unmerged = "",
+      unstaged = "",
+      untracked = "",
+   },
+   folder = {
+      default = "",
+      empty = "",
+      empty_open = "",
+      open = "",
+      symlink = "",
+      symlink_open = "",
+   },
+}
 
 require "nvim-tree".setup {
   disable_netrw = true,
@@ -46,9 +79,9 @@ require "nvim-tree".setup {
     timeout = 500
   },
   view = {
-    width = 30,
+    width = 27,
     height = 30,
-    hide_root_folder = false,
+    hide_root_folder = true,
     side = "left",
     auto_resize = true,
     mappings = {

@@ -2,11 +2,6 @@ local util = require("util")
 local global = require("util.global")
 local fn = vim.fn
 
-vim.api.nvim_command("augroup packer")
-vim.api.nvim_command("autocmd!")
-vim.api.nvim_command('autocmd BufWritePost *.lua lua require("core.autocmd").compile()')
-vim.api.nvim_command("augroup end")
-
 vim.g.vimwiki_list = {
   {
     path = os.getenv("HOME")..'/Documents/Vimwiki',
