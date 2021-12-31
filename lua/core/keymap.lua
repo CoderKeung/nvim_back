@@ -1,5 +1,5 @@
 local keymap = vim.api.nvim_set_keymap
-local check = require("core.check")
+local check = require("util.check")
 
 -- System Keymap
 keymap("n", "E", "<cmd>q!<CR>", {noremap = true, silent = true})

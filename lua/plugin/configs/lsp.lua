@@ -1,4 +1,4 @@
-local check = require("core.check")
+local check = require("util.check")
 vim.diagnostic.config(
   {
     virtual_text = {

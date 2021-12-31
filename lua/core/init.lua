@@ -1,5 +1,4 @@
 local util = require("util")
-local global = require("util.global")
 local execute = vim.api.nvim_command
 
 local core = {}

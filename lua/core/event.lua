@@ -1,5 +1,5 @@
 local util = require("util")
-local check = require("core.check")
+local check = require("util.check")
 
 local function check_cmdheight()
   if check.has_zer0_cmdheight() then

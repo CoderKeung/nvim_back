@@ -1,4 +1,3 @@
-local fn = vim.fn
 local execute = vim.api.nvim_command
 local global = require("util.global")
 
@@ -27,18 +26,6 @@ function util.packer_install()
     end
   end
   return false
-end
-
-function util.treesitter_module_install()
-  print("Cloning nvim-treesitter......")
-  vim.fn.system({"git", "clone", "--depth", "1", global.treesitter_repo, global.treesitter_path})
-  vim.cmd("packadd nvim-treesitter")
-  local precent, _ = pcall(require,"nvim-treesitter")
-  if precent then
-    execute("set cmdheight=1")
-    print("Install nvim-treesitter......")
-    require("plugin.configs.treesitter")
-  end
 end
 
 function util.break_module(tbl)
