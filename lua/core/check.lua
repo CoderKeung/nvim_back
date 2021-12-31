@@ -4,9 +4,9 @@ local uv = vim.loop
 check.has_zer0_cmdheight = function ()
   local has,_ = pcall(vim.cmd, "set cmdheight=0")
   if has then
-    return false
+    return true
   end
-  return true
+  return false
 end
 
 check.has_clangd = function ()
