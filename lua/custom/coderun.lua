@@ -1,8 +1,9 @@
-local autocmd = {}
+local M = {}
+
 local packer_config_dir = vim.fn.stdpath("config") .. "/lua"
 -- local packer_config_dir = os.getenv("HOME").."/.dotfile/config/nvim/lua/packerConfig"
 
-function autocmd:run()
+function M.run()
   vim.cmd [[:silent w!]]
   local filetype = vim.o.filetype
   local dir = vim.fn.expand("%:p")
@@ -25,7 +26,7 @@ function autocmd:run()
   end
 end
 
-function autocmd:compile()
+function M.packerCompile()
   local file = vim.fn.expand("%:p")
   if file:match(packer_config_dir) then
     vim.cmd [[ PackerClean ]]
@@ -34,9 +35,9 @@ function autocmd:compile()
   end
 end
 
-function autocmd:leetcodeSubmit()
+function M.leetcodeSubmit()
   local cmd = "leetcode submit " .. vim.fn.expand("%")
   require("toggleterm").exec(cmd)
 end
 
-return autocmd
+return M

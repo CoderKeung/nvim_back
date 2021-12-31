@@ -8,18 +8,17 @@ local use = packer.use
 local repos = util.break_module(modules)
 
 packer.startup({
-  function()
-    -- Packer can manage itself
-    use {"wbthomason/packer.nvim", opt = true}
-    for _,repo in pairs(repos) do
-      use(repo)
-    end
-  end,
-  config = {
-  display = {
-    open_fn = nil,
-    title = "Packer"
-  }
-}
+    function()
+      -- Packer can manage itself
+      use {"wbthomason/packer.nvim", opt = true}
+      for _, repo in pairs(repos) do
+        use(repo)
+      end
+    end,
+    config = {
+      display = {
+        open_fn = nil,
+        title = "Packer"
+      }
+    }
 })
-

@@ -1,4 +1,12 @@
 local util = require("util")
+local check = require("core.check")
+
+local function check_cmdheight()
+  if check.has_zer0_cmdheight() then
+    return 0
+  end
+  return 1
+end
 
 local options = {
   completeopt = "menuone,noinsert,noselect",
@@ -12,8 +20,8 @@ local options = {
   updatetime = 300,
   undofile = true,
   fillchars = "vert: ",
-  cmdheight=0,
-  laststatus=1,
+  cmdheight= check_cmdheight(),
+  laststatus=2,
 }
 
 util.set_option(options)

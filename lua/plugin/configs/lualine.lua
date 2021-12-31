@@ -150,13 +150,6 @@ require("lualine").setup {
     lualine_y = {},
     lualine_z = {}
   },
-  tabline = {
---    lualine_a = {{"buffers", padding = 2}},
---    lualine_b = {""},
---    lualine_c = {""},
---    lualine_x = {},
---    lualine_y = {{"tabs"}},
---    lualine_z = {}
-  },
+  tabline = {},
   extensions = {}
 }

@@ -1,4 +1,5 @@
 local keymap = vim.api.nvim_set_keymap
+local check = require("core.check")
 
 -- System Keymap
 keymap("n", "E", "<cmd>q!<CR>", {noremap = true, silent = true})
@@ -25,8 +26,8 @@ keymap("n", "Fm", '<cmd>lua require"custom.find".fd_nvim_dir()<CR>', {noremap = 
 keymap("n", "Fn", "<cmd>bnext<CR>", {noremap = true, silent = true})
 
 -- Running code Keymap
-keymap("n", "Fr", '<cmd>lua require "core.autocmd".run()<CR>', {noremap = true, silent = true})
-keymap("n", "Fs", "<cmd>lua require('core.autocmd').leetcodeSubmit()<CR>", {noremap = true, silent = true})
+keymap("n", "Fr", '<cmd>lua require "custom.coderun".run()<CR>', {noremap = true, silent = true})
+keymap("n", "Fs", "<cmd>lua require('custom.coderun').leetcodeSubmit()<CR>", {noremap = true, silent = true})
 
 -- Diffview Keymap
 keymap("n", "Fk", "<cmd>DiffviewOpen<CR>", {noremap = true, silent = true})
@@ -66,5 +67,7 @@ keymap("n", "Fv", "<cmd>TroubleToggle<CR>", {noremap = true, silent = true})
 keymap("n", "Fc", "<cmd>lua require'custom.leetcode'.leetcode_toggle(require'custom.leetcode'.dropdown())<CR>", {noremap = true, silent = true})
 
 -- Cmd Keymap
-keymap('n', ':', '<cmd>:lua require("custom.cmd").cmdEnter()<CR>:', {noremap = true})
-keymap('n', '/', '<cmd>:lua require("custom.cmd").cmdEnter()<CR>/', {noremap = true})
+if check.has_zer0_cmdheight() then
+  keymap('n', ':', '<cmd>:lua require("custom.cmd").cmdEnter()<CR>:', {noremap = true})
+  keymap('n', '/', '<cmd>:lua require("custom.cmd").cmdEnter()<CR>/', {noremap = true})
+end

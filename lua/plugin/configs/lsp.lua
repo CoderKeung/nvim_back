@@ -1,3 +1,4 @@
+local check = require("core.check")
 vim.diagnostic.config(
   {
     virtual_text = {
@@ -19,10 +20,15 @@ end
 -- Setup lspconfig.
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-require("lspconfig")["clangd"].setup {
-  capabilities = capabilities
-}
+if check.has_clangd() then
+  require("lspconfig")["clangd"].setup {
+    capabilities = capabilities
+  }
+else
+  require("notify")("No clangd......","Error",{render = "minimal"})
+end
 
+if check.has_lua_lsp() then
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
@@ -80,3 +86,6 @@ local luadev =
   }
 )
 require "lspconfig".sumneko_lua.setup(luadev)
+else
+  require("notify")("No lua-language-server......","Error",{render = "minimal"})
+end

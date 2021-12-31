@@ -76,7 +76,7 @@ require("bufferline").setup {
       guifg = "#5faf5f"
     },
     modified_visible = {
-      guibg = "none",
+      guibg = "#e78a4e",
       guifg = "#5faf5f"
     },
     modified_selected = {
