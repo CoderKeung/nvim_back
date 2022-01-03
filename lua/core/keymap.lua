@@ -64,10 +64,15 @@ keymap("n", "Fa", "<cmd>FormatWrite<CR>", {noremap = true, silent = true})
 keymap("n", "Fv", "<cmd>TroubleToggle<CR>", {noremap = true, silent = true})
 
 -- Leetcode Keymap
-keymap("n", "Fc", "<cmd>lua require'custom.leetcode'.leetcode_toggle(require'custom.leetcode'.dropdown())<CR>", {noremap = true, silent = true})
+keymap("n", "<Leader>c", "<cmd>lua require'custom.leetcode'.leetcode_toggle(require'custom.leetcode'.dropdown())<CR>", {noremap = true, silent = true})
+
+-- Hugo Keymap
+keymap("n", "Fq", "<cmd>lua require'custom.hugo'.post()<CR>", {noremap = true, silent = true})
+keymap("n", "<leader>h", "<cmd>lua require'custom.hugo_list'.toggle(require'custom.hugo_list'.dropdown())<CR>", {noremap = true, silent = true})
 
 -- Cmd Keymap
 if check.has_zer0_cmdheight() then
   keymap('n', ':', '<cmd>:lua require("custom.cmd").cmdEnter()<CR>:', {noremap = true})
   keymap('n', '/', '<cmd>:lua require("custom.cmd").cmdEnter()<CR>/', {noremap = true})
 end
+
