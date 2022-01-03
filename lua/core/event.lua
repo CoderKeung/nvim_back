@@ -10,11 +10,14 @@ end
 
 local defintions = {
   packer = {
-    {"BufWritePost","*lua","lua require('custom.coderun').packerCompile()"}
+    {"BufWritePost","*lua","lua require('custom.coderun').packerCompile()"},
   },
   cmd = check_cmdheight(),
   ft = {
     {"FileType","dashboard","set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2"}
+  },
+  win ={
+    {"BufEnter","*","hi VertSplit gui=none guibg=none guifg=none"}
   }
 }
 

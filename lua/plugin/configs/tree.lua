@@ -1,10 +1,10 @@
 local tree_cb = require "nvim-tree.config".nvim_tree_callback
 vim.cmd[[
-hi NvimTreeNormal guibg=#0A2B34
-hi NvimTreeNormalNC guibg=#0A2B34 
-hi NvimTreeStatusLine guibg=#0A2B34
-hi NvimTreeStatusLineNC guibg=#0A2B34 guifg=#0A2B34
-hi NvimTreeVertSplit guibg=#0A2B34
+hi NvimTreeNormal guibg=none
+hi NvimTreeNormalNC guibg=none
+hi NvimTreeStatusLine guibg=none
+hi NvimTreeStatusLineNC guibg=none guifg=#0A2B34
+hi NvimTreeVertSplit guibg=none
 hi NvimTreeFolderIcon guifg=#f6c177
 hi NvimTreeOpenedFolderName guifg=#e78a41
 ]]
@@ -79,7 +79,7 @@ require "nvim-tree".setup {
     timeout = 500
   },
   view = {
-    width = 27,
+    width = 24,
     height = 30,
     hide_root_folder = true,
     side = "left",

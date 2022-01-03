@@ -170,4 +170,9 @@ modules["folke/lua-dev.nvim"] = {
   module = "lua-dev"
 }
 
+modules["lukas-reineke/indent-blankline.nvim"] = {
+  event = "BufRead",
+  config = function() require("plugin.configs.indent") end
+}
+
 return modules

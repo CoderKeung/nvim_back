@@ -19,9 +19,10 @@ local options = {
   showmode = false,
   updatetime = 300,
   undofile = true,
-  fillchars = "vert: ",
+  fillchars = "vert:▏",
   cmdheight= check_cmdheight(),
   laststatus=2,
+  guifont = "FiraCode Nerd Font:h18",
 }
 
 util.set_option(options)

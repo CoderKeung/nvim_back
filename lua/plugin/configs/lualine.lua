@@ -86,7 +86,7 @@ require("lualine").setup {
     icons_enabled = true,
     theme = custom,
     component_separators = {left = "", right = ""},
-    section_separators = {left = "", right = ""},
+    section_separators = {left = "", right = ""},
     disabled_filetypes = {"NvimTree", "packer"},
     always_divide_middle = true
   },
@@ -144,10 +144,10 @@ require("lualine").setup {
   },
   inactive_sections = {
     lualine_a = {},
-    lualine_b = {},
+    lualine_b = {"filename"},
     lualine_c = {},
     lualine_x = {},
-    lualine_y = {},
+    lualine_y = {{"filetype", colored = false}},
     lualine_z = {}
   },
   tabline = {},
