@@ -1,23 +1,6 @@
-vim.cmd[[
-highlight! Pmenu guibg=NONE
-" gray
-highlight! CmpItemAbbrDeprecated guibg=#1b2b34 gui=strikethrough guifg=#808080
-" blue
-highlight! CmpItemAbbrMatch guibg=NONE guifg=#e78a4e
-highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#e78a4e
-" light blue
-highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
-highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
-highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
-" pink
-highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
-highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
-" front
-highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
-highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
-highlight! NormalFloat guibg=#1b2b34
-]]
+local util = require("util")
+
+util.set_highlight("cmp")
 
 -- Setup nvim-cmp.
 local cmp = require "cmp"

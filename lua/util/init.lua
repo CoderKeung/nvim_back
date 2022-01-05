@@ -55,4 +55,17 @@ function util.set_global_variable(global_varibal)
   end
 end
 
+function util.set_highlight(name)
+  local tbl = require("color.highlight")[name]
+  for highlight_name, highlight_value in pairs(tbl) do
+    local cmd
+    if type(highlight_value) == "table" then
+      cmd = "highlight! link "..highlight_name.." "..highlight_value[1]
+    else
+      cmd = "highlight! "..highlight_name.." "..highlight_value
+    end
+    vim.cmd(cmd)
+  end
+end
+
 return util

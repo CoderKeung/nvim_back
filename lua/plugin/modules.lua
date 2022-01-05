@@ -1,7 +1,12 @@
 local modules = {}
 
 modules["glepnir/oceanic-material"] = {
+  opt = true,
   config = function() vim.cmd[[colorscheme oceanic_material]] end
+}
+
+modules["olimorris/onedarkpro.nvim"] = {
+  config = function() require('onedarkpro').load() end
 }
 
 modules["kyazdani42/nvim-tree.lua"] = {

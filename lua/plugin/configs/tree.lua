@@ -1,13 +1,7 @@
+local util = require("util")
+util.set_highlight("tree")
+
 local tree_cb = require "nvim-tree.config".nvim_tree_callback
-vim.cmd[[
-hi NvimTreeNormal guibg=none
-hi NvimTreeNormalNC guibg=none
-hi NvimTreeStatusLine guibg=none
-hi NvimTreeStatusLineNC guibg=none guifg=#0A2B34
-hi NvimTreeVertSplit guibg=none
-hi NvimTreeFolderIcon guifg=#f6c177
-hi NvimTreeOpenedFolderName guifg=#e78a41
-]]
 
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_show_icons = {
