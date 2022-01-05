@@ -1,3 +1,24 @@
+vim.cmd[[
+highlight! Pmenu guibg=NONE
+" gray
+highlight! CmpItemAbbrDeprecated guibg=#1b2b34 gui=strikethrough guifg=#808080
+" blue
+highlight! CmpItemAbbrMatch guibg=NONE guifg=#e78a4e
+highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#e78a4e
+" light blue
+highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
+" pink
+highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+" front
+highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+highlight! NormalFloat guibg=#1b2b34
+]]
+
 -- Setup nvim-cmp.
 local cmp = require "cmp"
 local has_words_before = function()
@@ -6,30 +27,30 @@ local has_words_before = function()
 end
 
 local kind_icons = {
-  Text = "",
-  Method = "",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "ﴯ",
-  Interface = "",
-  Module = "",
-  Property = "ﰠ",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
+  Text          = "",
+  Method        = "",
+  Function      = "",
+  Constructor   = "",
+  Field         = "",
+  Variable      = "",
+  Class         = "ﴯ",
+  Interface     = "",
+  Module        = "",
+  Property      = "ﰠ",
+  Unit          = "",
+  Value         = "",
+  Enum          = "",
+  Keyword       = "",
+  Snippet       = "",
+  Color         = "",
+  File          = "",
+  Reference     = "",
+  Folder        = "",
+  EnumMember    = "",
+  Constant      = "",
+  Struct        = "",
+  Event         = "",
+  Operator      = "",
   TypeParameter = ""
 }
 
@@ -46,14 +67,23 @@ cmp.setup(
         -- Source
         vim_item.menu =
           ({
-          buffer = "[Buffer]",
-          nvim_lsp = "[LSP]",
-          luasnip = "[LuaSnip]",
-          nvim_lua = "[Lua]",
-          latex_symbols = "[LaTeX]"
+          buffer = "",
+          nvim_lsp = "",
+          luasnip = "",
+          nvim_lua = "",
+          latex_symbols = ""
         })[entry.source.name]
+        -- Change itrm maxwidth
+        vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
         return vim_item
       end
+    },
+    documentation = {
+      border = "single",
+    },
+    completion ={
+      border = 'single',
+      scrollbar = '║',
     },
     snippet = {
       -- REQUIRED - you must specify a snippet engine
@@ -92,7 +122,8 @@ cmp.setup(
         {name = "vsnip"}
       },
       {
-        {name = "buffer"}
+        {name = "buffer"},
+        { name = 'path' },
       }
     )
   }

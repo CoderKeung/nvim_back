@@ -9,20 +9,20 @@ local function check_cmdheight()
 end
 
 local options = {
-  completeopt = "menuone,noinsert,noselect",
-  sw = 2,
-  expandtab = true,
-  number = true,
+  completeopt    = "menuone,noinsert,noselect",
+  sw             = 2,
+  expandtab      = true,
+  number         = true,
   relativenumber = true,
-  termguicolors = true,
-  clipboard = "unnamedplus",
-  showmode = false,
-  updatetime = 300,
-  undofile = true,
-  fillchars = "vert:▏",
-  cmdheight= check_cmdheight(),
-  laststatus=2,
-  guifont = "FiraCode Nerd Font:h18",
+  termguicolors  = true,
+  clipboard      = "unnamedplus",
+  showmode       = false,
+  updatetime     = 300,
+  undofile       = true,
+  fillchars      = "vert:▏",
+  cmdheight      = check_cmdheight(),
+  laststatus     = 2,
+  guifont        = "FiraCode Nerd Font:h18",
 }
 
 util.set_option(options)

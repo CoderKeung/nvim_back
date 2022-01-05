@@ -73,6 +73,7 @@ keymap("n", "<leader>h", "<cmd>lua require'custom.hugo_list'.toggle(require'cust
 -- Cmd Keymap
 if check.has_zer0_cmdheight() then
   keymap('n', ':', '<cmd>:lua require("custom.cmd").cmdEnter()<CR>:', {noremap = true})
+  keymap('v', ':', '<cmd>:lua require("custom.cmd").cmdEnter()<CR>:', {noremap = true})
   keymap('n', '/', '<cmd>:lua require("custom.cmd").cmdEnter()<CR>/', {noremap = true})
 end
 

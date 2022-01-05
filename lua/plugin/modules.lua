@@ -31,7 +31,7 @@ modules["norcalli/nvim-colorizer.lua"] = {
 modules["neovim/nvim-lspconfig"] = {
   requires = {
     {"hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp"},
-    {"hrsh7th/nvim-cmp", event = "InsertEnter", config = function() require("plugin.configs.cmp") end},
+    {"Iron-E/nvim-cmp", branch = "feat/completion-menu-borders",event = {"InsertEnter","CmdlineEnter"}, config = function() require("plugin.configs.cmp") end},
     {"hrsh7th/cmp-buffer", after = "nvim-cmp"},
     {"hrsh7th/cmp-path", after = "nvim-cmp"},
     {"hrsh7th/cmp-cmdline", after = "nvim-cmp"},
@@ -173,6 +173,12 @@ modules["folke/lua-dev.nvim"] = {
 modules["lukas-reineke/indent-blankline.nvim"] = {
   event = "BufRead",
   config = function() require("plugin.configs.indent") end
+}
+
+modules["nathom/filetype.nvim"] = {}
+
+modules["godlygeek/tabular"] = {
+  cmd = "Tabularize",
 }
 
 return modules

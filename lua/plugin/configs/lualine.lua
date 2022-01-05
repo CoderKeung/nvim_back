@@ -1,19 +1,19 @@
 local colors = {
-  none = "NONE",
-  bg = "#1b2b34",
-  fg = "#d4be98",
-  red = "#EC5f67",
-  pink = "#d16d92",
-  pink_pre = "#c594c5",
-  orange = "#e78a4e",
-  yellow = "#d8a657",
+  none      = "NONE",
+  bg        = "#1b2b34",
+  fg        = "#d4be98",
+  red       = "#EC5f67",
+  pink      = "#d16d92",
+  pink_pre  = "#c594c5",
+  orange    = "#e78a4e",
+  yellow    = "#d8a657",
   green_pre = "#a9b665",
-  blue_pre = "#62b3b2",
-  blue = "#6699cc",
-  green = "#5faf5f",
-  white = "#c0c5ce",
-  brown = "#7c6f64",
-  black = "#282c34"
+  blue_pre  = "#62b3b2",
+  blue      = "#6699cc",
+  green     = "#5faf5f",
+  white     = "#c0c5ce",
+  brown     = "#7c6f64",
+  black     = "#282c34"
 }
 
 local custom = {
@@ -120,9 +120,9 @@ require("lualine").setup {
         diagnostics_color = {
           -- Same values like general color option can be used here.
           error = "DiffDelete", -- changes diagnostic's error color
-          warn = "IncSearch", -- changes diagnostic's warn color
-          info = "DiffAdd", -- changes diagnostic's info color
-          hint = "Visual" -- changes diagnostic's hint color
+          warn  = "IncSearch", -- changes diagnostic's warn color
+          info  = "DiffAdd", -- changes diagnostic's info color
+          hint  = "Visual" -- changes diagnostic's hint color
         },
         symbols = {error = "  ", warn = "  ", info = "  ", hint = "  "}
       }
@@ -150,6 +150,6 @@ require("lualine").setup {
     lualine_y = {{"filetype", colored = false}},
     lualine_z = {}
   },
-  tabline = {},
+  tabline    = {},
   extensions = {}
 }
