@@ -13,7 +13,8 @@ end
 
 highlight.cmp = highlight.new {
   Pmenu                 = "guibg = NONE",
-  NormalFloat           = "guibg = NONE",
+  CmpWindow             = "guibg = NONE",
+  CmpWindowBorder       = "guifg = #e78a4e",
   CmpItemAbbrMatch      = "guibg = NONE guifg = #e78a4e",
   CmpItemAbbrDeprecated = "guibg = NONE gui   = strikethrough guifg = #808080",
   CmpItemAbbrMatchFuzzy = "guibg = NONE guifg = #e78a4e",

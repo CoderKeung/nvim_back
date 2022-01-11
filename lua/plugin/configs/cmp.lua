@@ -57,16 +57,19 @@ cmp.setup(
           latex_symbols = ""
         })[entry.source.name]
         -- Change itrm maxwidth
-        vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
+        -- vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
         return vim_item
       end
     },
-    documentation = {
-      border = "single",
-    },
-    completion ={
-      border = 'single',
-      scrollbar = '║',
+    window = {
+      documentation = {
+        border = "single";
+        scrollbar = "║"
+      },
+      completion = {
+        border = "single";
+        scrollbar = "║"
+      }
     },
     snippet = {
       -- REQUIRED - you must specify a snippet engine
@@ -106,7 +109,7 @@ cmp.setup(
       },
       {
         {name = "buffer"},
-        { name = 'path' },
+        {name = "path"}
       }
     )
   }

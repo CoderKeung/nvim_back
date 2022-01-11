@@ -4,6 +4,7 @@ local custom = {
   normal = {
     a = {bg = colors.yellow, fg = colors.bg},
     b = {bg = colors.orange, fg = colors.black},
+    c = {bg = colors.none, fg = colors.none},
     x = {bg = colors.green, fg = colors.black},
     y = {bg = colors.pink, fg = colors.black},
     z = {bg = colors.bg, fg = colors.yellow}
@@ -11,6 +12,7 @@ local custom = {
   insert = {
     a = {bg = colors.red, fg = colors.black},
     b = {bg = colors.orange, fg = colors.black},
+    c = {bg = colors.none, fg = colors.none},
     x = {bg = colors.green, fg = colors.black},
     y = {bg = colors.pink, fg = colors.black},
     z = {bg = colors.bg, fg = colors.red}
@@ -18,6 +20,7 @@ local custom = {
   visual = {
     a = {bg = colors.green, fg = colors.black},
     b = {bg = colors.orange, fg = colors.black},
+    c = {bg = colors.none, fg = colors.none},
     x = {bg = colors.green, fg = colors.black},
     y = {bg = colors.pink, fg = colors.black},
     z = {bg = colors.bg, fg = colors.green}
@@ -25,6 +28,7 @@ local custom = {
   command = {
     a = {bg = colors.blue, fg = colors.black},
     b = {bg = colors.orange, fg = colors.black},
+    c = {bg = colors.none, fg = colors.none},
     x = {bg = colors.green, fg = colors.black},
     y = {bg = colors.pink, fg = colors.black},
     z = {bg = colors.bg, fg = colors.blue}
@@ -71,7 +75,7 @@ require("lualine").setup {
     theme = custom,
     component_separators = {left = "", right = ""},
     section_separators = {left = "", right = ""},
-    disabled_filetypes = {"NvimTree", "packer"},
+    disabled_filetypes = {"NvimTree", "DiffviewFiles","packer"},
     always_divide_middle = true
   },
   sections = {

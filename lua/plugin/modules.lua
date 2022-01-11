@@ -1,11 +1,16 @@
 local modules = {}
 
+modules["theniceboy/nvim-deus"] = {
+  config = function() vim.cmd[[colorscheme deus]] end
+}
+
 modules["glepnir/oceanic-material"] = {
   opt = true,
   config = function() vim.cmd[[colorscheme oceanic_material]] end
 }
 
 modules["olimorris/onedarkpro.nvim"] = {
+  opt = true,
   config = function() require('onedarkpro').load() end
 }
 

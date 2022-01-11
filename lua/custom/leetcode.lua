@@ -18,7 +18,7 @@ local action_state = require "telescope.actions.state"
 
 local leetcode_list = {}
 
-local leetcodeCmd = "leetcode list -q L"
+local leetcodeCmd = "leetcode list "
 local leetcodeDir = os.getenv("HOME").."/leetcode/"
 
 local handle = io.popen(leetcodeCmd)
