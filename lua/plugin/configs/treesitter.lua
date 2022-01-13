@@ -1,21 +1,3 @@
-local parsers = require "nvim-treesitter.parsers"
-local parser_list = parsers.available_parsers()
-
-table.sort(parser_list)
-
-local status = 0
-
-for _, ft in pairs(parser_list) do
-  local is_installed = #vim.api.nvim_get_runtime_file("parser/" .. ft .. ".so", false) > 0
-  if not is_installed then
-    status = status + 1
-  end
-end
-
-if status > 10  then
-  vim.api.nvim_command("set cmdheight=1")
-end
-
 require "nvim-treesitter.configs".setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
