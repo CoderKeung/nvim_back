@@ -1,3 +1,5 @@
+local util = require 'lspconfig/util'
+local root_pattern = util.root_pattern("package.json")
 local check = require("util.check")
 vim.diagnostic.config(
   {
@@ -89,3 +91,32 @@ require "lspconfig".sumneko_lua.setup(luadev)
 else
   require("notify")("No lua-language-server......","Error",{render = "minimal"})
 end
+
+require'lspconfig'.gopls.setup{
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gotmpl" },
+  root_dir = root_pattern("go.mod", ".git"),
+  capabilities = capabilities,
+}
+
+require'lspconfig'.tsserver.setup{
+  cmd = { "typescript-language-server", "--stdio" },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  init_options = {
+    hostInfo = "neovim"
+  },
+  root_dir = root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+}
+
+require'lspconfig'.emmet_ls.setup{
+  cmd = { "emmet-ls", "--stdio" },
+  filetypes = { "html", "css" },
+  single_file_support = true
+}
+
+require'lspconfig'.stylelint_lsp.setup{
+  cmd = { "stylelint-lsp", "--stdio" },
+  filetypes = { "css", "less", "scss", "sugarss", "vue", "wxss", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  root_dir =  root_pattern('.stylelintrc', 'package.json'),
+  settings = {}
+}

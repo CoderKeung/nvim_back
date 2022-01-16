@@ -191,4 +191,8 @@ modules["godlygeek/tabular"] = {
   cmd = "Tabularize",
 }
 
+modules["Pocco81/AutoSave.nvim"] = {
+  config = function() require("plugin.configs.autosave") end
+}
+
 return modules

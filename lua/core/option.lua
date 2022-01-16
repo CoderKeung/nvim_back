@@ -11,6 +11,9 @@ end
 local options = {
   completeopt    = "menuone,noinsert,noselect",
   sw             = 2,
+  tabstop        = 2,
+  softtabstop    = 2,
+  shiftwidth     = 2,
   expandtab      = true,
   number         = true,
   relativenumber = true,

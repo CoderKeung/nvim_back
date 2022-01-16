@@ -23,6 +23,12 @@ function M.run()
       local cmd = "g++ -std=c++11 " .. vim.fn.expand("%") .. " && time ./a.out && rm -rf a.out"
       require'toggleterm'.exec(cmd)
     end
+  elseif filetype == "go" then
+    local cmd = "go run "..vim.fn.expand("%")
+    require'toggleterm'.exec(cmd)
+  elseif filetype == "sh" then
+    local cmd = "sh "..vim.fn.expand("%")
+    require'toggleterm'.exec(cmd)
   end
 end
 
