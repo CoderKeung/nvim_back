@@ -2,7 +2,7 @@ local util = require("util")
 local check = require("util.check")
 
 local function check_cmdheight()
-  if check.has_zer0_cmdheight() then
+  if check.has_zero_cmdheight() then
     return {{"CmdlineLeave","*","lua require ('custom.cmd').cmdExit()"}}
   end
   return {}

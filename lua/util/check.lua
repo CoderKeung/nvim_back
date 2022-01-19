@@ -1,7 +1,7 @@
 local check = {}
 local uv = vim.loop
 
-check.has_zer0_cmdheight = function ()
+check.has_zero_cmdheight = function ()
   local has,_ = pcall(vim.cmd, "set cmdheight=0")
   if has then
     return true

@@ -43,11 +43,10 @@ local luadev =
     --   cmd = {"lua-language-server"}
     -- },
     lspconfig = {
-      -- cmd = {os.getenv("HOME") .. "/lua-language-server/bin/macOS/lua-language-server"},
       cmd = {"lua-language-server"},
       filetypes = {"lua"},
       log_level = 2,
-      root_dir = vim.loop.cwd,
+      root_dir = root_pattern("package.json", ".git"),
       single_file_support = true,
       capabilities = {
         textDocument = {
